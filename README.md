@@ -71,7 +71,6 @@ stroke-level-decomposition/
 │   ├── decompose-radical-27533.txt        部首分解，对照用
 │   ├── decompose-stroke-korean-2350.txt   韩文分解，对照用
 │   ├── lmdbReader.py                       LMDB 数据读取与归一化
-│   ├── chinese_character_test.lmdb/        示例测试数据
 │   └── print_font_template/
 │       ├── simsun.pkl                      宋体模板，易混字消歧用
 │       └── simfang.pkl                     仿宋模板，易混字消歧用
@@ -111,7 +110,11 @@ pip install -r requirement.txt
 
 ### 一、数据准备
 
-`jpg_to_lmdb.py` 把按"类别文件夹 / 图片"组织的 JPG 数据集转换为模型所需的 LMDB 格式，并统一缩放尺寸。数据集目录结构应为：
+本仓库不包含训练与测试数据。本项目所用的 IHCCD 非规范手写汉字数据集可从以下百度网盘获取：
+
+- IHCCD 数据集：https://pan.baidu.com/s/1PtcfWj3yUSz68o2ZzvPJOQ 提取码：66Y7
+
+下载得到原始图像后，用 `jpg_to_lmdb.py` 把按"类别文件夹 / 图片"组织的 JPG 数据集转换为模型所需的 LMDB 格式，并统一缩放尺寸。数据集目录结构应为：
 
 ```
 数据集根目录/
@@ -204,7 +207,7 @@ python inference.py
 
 @article{ji2024ihccd,
   title={IHCCD: dataset for identification of irregular handwritten Chinese characters},
-  author={Ji, Jiamei and Shao, Yunxue and Ji, Tanzheng},
+  author={Jiamei Ji and Yunxue Shao and Tanzheng Ji},
   journal={Journal of Image and Graphics},
   volume={29},
   number={11},

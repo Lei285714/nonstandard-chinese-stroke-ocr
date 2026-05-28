@@ -46,8 +46,8 @@ One point to state honestly: due to limited GPU memory, the third experiment dow
 
 The weight file `best_model.pth` is provided with the repository via Git LFS. If pulling large files from GitHub is inconvenient, you can also obtain it from the following drives:
 
-- OneDrive：[best_model.pth](https://1drv.ms/u/c/574ef7ae453129f3/IQDH_UOPbWVZRqxasHorERhKAXVRTdKKTZTGXTi2ep8rN5k?e=zgzAqK)
-- 夸克网盘：https://pan.quark.cn/s/fa443f3ec04a
+- OneDrive: [best_model.pth](https://1drv.ms/u/c/574ef7ae453129f3/IQDH_UOPbWVZRqxasHorERhKAXVRTdKKTZTGXTi2ep8rN5k?e=zgzAqK)
+- Quark Drive: https://pan.quark.cn/s/fa443f3ec04a
 
 After downloading, place it back into the `history/0713TestOnIHCCD/` directory, or point `WEIGHT_PATH` in `inference.py` to wherever you store it.
 
@@ -70,7 +70,6 @@ stroke-level-decomposition/
 │   ├── decompose-radical-27533.txt        Radical decomposition, for comparison
 │   ├── decompose-stroke-korean-2350.txt   Korean decomposition, for comparison
 │   ├── lmdbReader.py                       LMDB data reading and normalization
-│   ├── chinese_character_test.lmdb/        Sample test data
 │   └── print_font_template/
 │       ├── simsun.pkl                      SimSun template, for confusable-character disambiguation
 │       └── simfang.pkl                     SimFang template, for confusable-character disambiguation
@@ -110,7 +109,11 @@ Pay particular attention to the `python-Levenshtein` dependency, used for the ed
 
 ### 1. Data Preparation
 
-`jpg_to_lmdb.py` converts a JPG dataset organized as "class folder / images" into the LMDB format the model requires, and resizes all images to a uniform size. The dataset directory should be structured as:
+This repository does not include the training or test data. The IHCCD dataset of non-standard handwritten Chinese characters used in this project is available from the following Baidu Netdisk link:
+
+- IHCCD dataset: https://pan.baidu.com/s/1PtcfWj3yUSz68o2ZzvPJOQ (extraction code: 66Y7)
+
+After downloading the raw images, use `jpg_to_lmdb.py` to convert the JPG dataset organized as "class folder / images" into the LMDB format the model requires, resizing all images to a uniform size. The dataset directory should be structured as:
 
 ```
 dataset_root/
@@ -203,7 +206,7 @@ If this project helps your research, please cite the original method paper and t
 
 @article{ji2024ihccd,
   title={IHCCD: dataset for identification of irregular handwritten Chinese characters},
-  author={Ji, Jiamei and Shao, Yunxue and Ji, Tanzheng},
+  author={Jiamei Ji and Yunxue Shao and Tanzheng Ji},
   journal={Journal of Image and Graphics},
   volume={29},
   number={11},
